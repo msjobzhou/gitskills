@@ -1,3 +1,3 @@
 # gitskills
 
- ![0](pic\0.jpg)
+![0](pic/0.jpg)
