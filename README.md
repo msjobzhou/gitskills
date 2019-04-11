@@ -169,4 +169,30 @@ https://wenku.baidu.com/view/3b958f2dbd64783e09122b3e.html
 https://www.zhihu.com/question/20484426/answer/180582779
 1）二进制中0异或任何数（0或者1）不变，1异或任何数取反，一个数A异或自身得到0，一个数A连续两次异或另一个数B，得到的结果还是A 2）异或加密
 第三十三天（2019.4.3）：主要复习之前学习过的内容
-第三十四天（2019.4.4）：今天要继续学习8.4章节
+第三十四天（2019.4.4）：今天要继续学习8.4章节，同时复习7.13中的游程编码
+第三十五天（2019.4.5）：今天继续昨天的学习8.4章节，同时复习7.13中的游程编码
+游程编码的应用场景：1)大量白色或黑色的区域单色影像图2)电脑生成的同色区块的彩色图像（如建筑绘图纸）（摘自：https://baike.baidu.com/item/%E6%B8%B8%E7%A8%8B%E7%BC%96%E7%A0%81/418113?fr=aladdin  ）
+接着介绍了链码：1）链码是指用曲线起始点的坐标和边界点方向代码来描述曲线或边界的方法，常被用来在图像处理、计算机图形学、模式识别等领域中表示曲线和区域边界。它是一种边界的编码表示法，用边界方向作为编码依据，为简化边界的描述，一般描述的是边界点集。2）以及归一化链码和为使链码具备旋转不变性而进行的链码差分操作
+https://blog.csdn.net/coming_is_winter/article/details/78940914
+
+遗留问题：
+百度搜索：轮廓 算法
+https://www.cnblogs.com/linlin-myblog/p/4231735.html
+第三十六天（2019.4.6）：今天主要研究suzuki 轮廓跟踪算法，据说这个是opencv中findcontour的算法，相关资源如下：
+1）论文翻译：
+https://blog.csdn.net/yiqiudream/article/details/76864722
+2）论文原文：
+https://wenku.baidu.com/view/6cb52ede360cba1aa811dad5.html
+
+其中suziki论文中提到的connected components一般翻译成连通区域，查看牛津字典，发现component有组成部分，部件的意思，这样的话connected components翻译成连通区域还是挺恰当的，关于连通区域参考下面的这篇文章：OpenCV-二值图像连通域分析
+https://blog.csdn.net/qq_37059483/article/details/78018539
+第三十七天（2019.4.7）：今天继续研究suzuki 轮廓跟踪算法，阅读论文的中文和英文全文
+第三十八天（2019.4.8）：今天继续研究suzuki 轮廓跟踪算法，阅读论文的中文和英文全文
+第三十九天（2019.4.9）：今天继续研究suzuki 轮廓跟踪算法，阅读论文的中文和英文全文
+这篇文章讲解了结合opencv源代码进行一个外边界outer border的标记过程，值得参考。
+https://blog.csdn.net/yiqiudream/article/details/75702407
+第四十天（2019.4.10）：今天继续研究suzuki 轮廓跟踪算法，具体看下附录I里面对于算法的正式描述，结合第39天上面这个记录中的链接，基本上suziki轮廓跟踪算法看了一遍了，还有一些细节的问题待进一步挖掘。
+第四十一天（2019.4.11）：今天继续研究suzuki 轮廓跟踪算法，整体上看下算法，查缺补漏
+中英文论文翻译加上下面的这篇文章应该可以很好的理解这个算法
+https://blog.csdn.net/yiqiudream/article/details/75702407
+明天准备写总结以及按照上面的帖子单步调试下程序
