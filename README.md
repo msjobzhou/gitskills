@@ -186,6 +186,7 @@ https://wenku.baidu.com/view/6cb52ede360cba1aa811dad5.html
 
 其中suziki论文中提到的connected components一般翻译成连通区域，查看牛津字典，发现component有组成部分，部件的意思，这样的话connected components翻译成连通区域还是挺恰当的，关于连通区域参考下面的这篇文章：OpenCV-二值图像连通域分析
 https://blog.csdn.net/qq_37059483/article/details/78018539
+里面有种子填充法在本书中也多次提到，后续可以继续研究一下
 第三十七天（2019.4.7）：今天继续研究suzuki 轮廓跟踪算法，阅读论文的中文和英文全文
 第三十八天（2019.4.8）：今天继续研究suzuki 轮廓跟踪算法，阅读论文的中文和英文全文
 第三十九天（2019.4.9）：今天继续研究suzuki 轮廓跟踪算法，阅读论文的中文和英文全文
@@ -195,4 +196,157 @@ https://blog.csdn.net/yiqiudream/article/details/75702407
 第四十一天（2019.4.11）：今天继续研究suzuki 轮廓跟踪算法，整体上看下算法，查缺补漏
 中英文论文翻译加上下面的这篇文章应该可以很好的理解这个算法
 https://blog.csdn.net/yiqiudream/article/details/75702407
-明天准备写总结以及按照上面的帖子单步调试下程序
+明天准备写总结以及按照上面的帖子单步调试下程序 
+第四十二天（2019.4.12）：suziki轮廓跟踪算法的详细总结和结合程序的调试，抽个周末的时间再集中搞下，今天开始继续学习书籍上的内容
+第四十三天（2019.4.13）：昨天主要对于图8.12 游程编码 将 相接像素组合到特征中并分配ID号的流程图做了详细解释，文中中文确实难以理解
+第四十四天（2019.4.14）：图8.27讲到了通过图像相除可以删除不均匀的背景，这是啥原理还没有搞清楚，需要复习下第五章第12节和13节的内容
+下面是百度搜到的几篇文章提到了除法运算的含义：
+https://blog.csdn.net/lj695242104/article/details/7291492
+总结：除法运算可以理解为两幅图像之间的对比，也可以说事两幅图像之间的对比度。？？？
+https://blog.csdn.net/zuleimin/article/details/6071060
+图像的除法可以用来纠正由于照明或传感器的非均匀性造成的图像灰度阴影，还被用于产生比率图像？？？
+百度百科中关于图像比值的说法：https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E6%AF%94%E5%80%BC/22316488
+第四十五天（2019.4.15）：今天继续学习图像的除法运算，第4章第7节讲到了除法消除非均匀光照的方式
+下面的帖子提到了图像除法的作用：
+https://www.cnblogs.com/minisculestep/archive/2015/10/07/4858972.html
+除法运算可用于校正成像设备的非线性影响，这在特殊形态的图象（如断层扫描等医学图像）处理中常常用到。图像除法也可以用来检测两幅图像间的区别，但是除法操作给出的是相应像素值的变化比率，而不是每个像素的绝对差异，因而图像除法也成为比率变换。
+其中本书中多个章节讲到了图像除法：比如图1.76，4.7章节“非均匀光照”， 图4.41**背景调匀**
+
+![1555341419916](pic/1555341419916.png)
+
+![1555341556706](pic/1555341556706.png)
+
+![1555341604496](pic/1555341604496.png)
+另外，5.13节也介绍了图像相除在卫星图像和天文图像上的应用
+接着进行8.7节双阈值处理的学习，这一节没怎么看懂，后面复习的时候再来看一次
+第四十六天（2019.4.16）：今天进行膨胀和腐蚀的学习
+第四十七天（2019.4.17）：今天进行膨胀和腐蚀的学习
+第四十八天（2019.4.19）：今天总结下本书中的膨胀和腐蚀与其他网站或者是opencv官方文档中不同描述形式，本书中也提到了
+
+>腐蚀和膨胀分别会缩小和增大区域的尺寸，决定增加或者删除哪些像素，以及形成腐蚀和膨胀的组合，存在大量的规则。
+
+因此腐蚀和膨胀各种各样的算法都存在，首先书中提到了一种经典算法
+
+![1555688789900](pic/1555688789900.png)
+
+下面的网址和opencv官方库描述的都是这种原始图像和“结构元素”进行匹配的算法
+下面的文章描述的是二值图像的情形
+https://blog.csdn.net/qq_25847123/article/details/73744575
+opencv的官方文档将此情形推广到了任意图像（包括灰度图像和彩色图像）
+http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/erosion_dilatation/erosion_dilatation.html
+简单来说，膨胀就是取模板覆盖区域内的最大值，腐蚀就是取模板覆盖区域内的最小值
+第四十九天（2019.4.20）：今天进行膨胀和腐蚀的学习，各向同性的复习
+第五十天（2019.4.22）：今天进行8.14章节的学习，8.15节没有怎么看懂,后面有机会再看吧
+今天重点研究分水岭算法, 书上讲解的比较粗略,需要从网上寻找一些资料
+https://blog.csdn.net/xihuaxi/article/details/72639149
+http://www.jdzj.com/plc/article/2010-6-24/17974-1.htm
+https://blog.csdn.net/fengye2two/article/details/79116105
+第五十一天（2019.4.23）：今天继续研究分水岭算法的论文，
+下载到了一篇：Watersheds in Digital Spaces: An Efficient Algorithm Based on Immersion Simulations
+另外一篇没有下载到：Meyer, F. Color Image Segmentation, ICIP92, 1992
+
+OpenCV watershed 源码分析
+https://blog.csdn.net/ttransposition/article/details/9007197
+opencv之分水岭算法watershed源码注释
+http://www.itdaan.com/blog/2017/02/13/4864ba8fbd8f.html
+下面这篇文章也不错：
+http://yanghespace.com/2015/08/26/%E5%88%86%E6%B0%B4%E5%B2%AD%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/
+第五十二天（2019.4.24）：今天继续研究分水岭算法的论文
+Watersheds in Digital Spaces: An Efficient Algorithm Based on Immersion Simulations
+第五十三天（2019.4.25）：今天继续研究分水岭算法的论文
+Watersheds in Digital Spaces: An Efficient Algorithm Based on Immersion Simulations
+关于 geodesic distance 的通俗解释
+https://blog.csdn.net/hnu_wang_chao/article/details/78612479
+geodesic distance ，这个单词的中文翻译是测地距离，其实测地距离的意思就是在三维空间中，两点之间的最短路径，归根究底就是最短路径，在三维中间从一个点到另外一个点的路径有无数种，但是最短路径只有一条，那么这个最短路径的长度就是测地距离 geodesic distance。
+论文中的算法第一步是分布计数排序，可参考下面的文章
+https://blog.csdn.net/khwkhwkhw/article/details/51278579
+第五十四天（2019.4.26）：今天继续研究分水岭算法的论文
+Watersheds in Digital Spaces: An Efficient Algorithm Based on Immersion Simulations
+在网上找到了一个人写的源代码，可以参考：
+http://www.cnblogs.com/keke2014/p/3858993.html
+第五十五天（2019.4.27）：今天继续研究分水岭算法的论文
+Watersheds in Digital Spaces: An Efficient Algorithm Based on Immersion Simulations
+第五十六天（2019.4.28）：今天继续研究分水岭算法的论文，主要阅读源代码，并把代码放到了VS2013上运行了一下
+Watersheds in Digital Spaces: An Efficient Algorithm Based on Immersion Simulations
+第五十七天（2019.4.29）：今天继续研究分水岭算法的论文，对网友共享的分水岭算法进行完全注释，在电脑上搜索WatershedAlgorithm.h这个文件，核心算法注释在这个文件里面
+第五十八天（2019.4.30）：今天继续研究分水岭算法的论文，重读原文
+第五十九天（2019.5.4）：今天在公司的电脑上读了 Color Image Segmentation这篇文章
+其中下面这篇博文中的几个截图已经基本上把meyer的这篇论文给阐述清楚了
+https://blog.csdn.net/ttransposition/article/details/9007197
+源代码的解读可以参考上面这篇文章，也可以参考下面这篇文章
+https://blog.csdn.net/byxdaz/article/details/4377753
+
+第六十天（2019.5.5）：今天把Color Image Segmentation这篇论文打印出来，并拍照发到了自己的邮箱
+第六十一天（2019.5.6）：利用了两个晚上的时间把Color Image Segmentation这篇论文的照片使用OCR在线识别转成了可编辑的word文档
+第六十二天（2019.5.7）：继续研究论文Color Image Segmentation
+第六十三天（2019.5.8）：结合opencv源码继续研究论文Color Image Segmentation，算法描述比较简单，也比较好理解，明天需要继续研究为啥这么简单的算法是正确的
+第六十四天（2019.5.9）：结合opencv源码继续研究论文Color Image Segmentation，为啥这个算法是正确的
+这里的帖子不用手工标记markers，而是结合findContour函数进行自动标记markers（下面两篇文档都可以参考）需要的markers图层可以通过findContours（）函数勾勒出来
+https://blog.csdn.net/dcrmg/article/details/52498440
+https://blog.csdn.net/qingyafan/article/details/44260817
+第六十五天（2019.5.10）：继续看论文Color Image Segmentation，在VS2013上实际运行opencv中关于watershed的源代码
+第六十六天（2019.5.11）：结合opencv的findContours函数和watershed函数来进行研究
+下面的这个帖子详细讲解了findContours函数的参数的意思
+https://blog.csdn.net/eric_e/article/details/79591025
+opencv官方文档对于轮廓之间的hierarchy的解释，另外，下面的这篇文档可以作为opencv总体学习的入门文档，非常好，里面有很多例子
+https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_hierarchy/py_contours_hierarchy.html?highlight=findcontours
+从今天开始，我要正式进入以opencv实战为主了，先从研究opencv安装之后本机自带的watershed.cpp文档开始，陆续打牢一些opencv的底子
+1）opencv图像的表示形式：IplImage（opencv1.0）和Mat（opencv2.0)
+下面的这篇文档对两者分别进行了代码举例和讲解两者之间如何进行相互转化
+https://blog.csdn.net/qq_37764129/article/details/81271660
+IplImage访问图像中每个像素的值
+https://blog.csdn.net/lien0906/article/details/38816955
+访问Mat图像中每个像素的值
+https://blog.csdn.net/xiaowei_cqu/article/details/7771760
+2)图像转换
+
+第六十七天（2019.5.20）：vs2013配置opencv2.4.9完成之后，实际运行findcontour函数的相关代码，opencv的官方文档描述，轮廓的背景应该是黑色，物体应该是白色
+In OpenCV, finding contours is like finding white object from black background. So remember, object to be found should be white and background should be black.
+但下面的例子恰好给的图像背景是白色，物体是黑色
+
+![1558363960093](pic/1558363960093.png)
+这篇文章关于轮廓的编号顺序可以参考下
+https://blog.csdn.net/fengye2two/article/details/79101968
+第六十八天（2019.5.21）：继续进行opencv findcontour函数的研究，遗留一个轮廓和孔编号顺序的问题，估计要看源代码才能了解了。
+第六十九天（2019.5.22）：学习opencv3这本书到了轮廓匹配章节之后，就在讲矩了，因此先查点关于矩的资料，下面的资料中讲了图像矩
+https://www.zhihu.com/question/23236070/answer/143316942
+https://www.zhihu.com/question/19915565
+https://www.matongxue.com/madocs/412.html
+很实用的一波操作
+https://zhuanlan.zhihu.com/p/61328775
+学习opencv3 课后习题答案
+https://www.cnblogs.com/jsxyhelu/p/9361915.html
+第七十天（2019.5.23）：今天进入到轮廓匹配，形状匹配的学习和实际操练
+下面的两个帖子非常不错，都是有实际操作的
+https://blog.csdn.net/KYJL888/article/details/85106199
+https://blog.csdn.net/KYJL888/article/details/85060883
+
+W3School上的opencv官方教程（这个教程好，有代码，有图片）
+https://www.w3cschool.cn/opencv/opencv-p8ze2dhc.html
+对应的github上的源码
+https://github.com/opencv/opencv/blob/master/samples/cpp/tutorial_code/ShapeDescriptors/findContours_demo.cpp
+
+后面做一个专题：就是手势识别的
+https://blog.csdn.net/u013467442/article/details/35563957
+
+contour_demo.cpp 这篇文档，主要讲解轮廓的层次结构
+
+canny边缘检测
+https://zhuanlan.zhihu.com/p/33676923
+
+第七十天（2019.5.24）：今天进入SIFT特征理解
+这篇帖子讲了SIFT特征理解
+https://blog.csdn.net/WhereYouSink/article/details/80458922
+在上面的这个帖子里面提到了两篇文章讲到了DoG和HoG，也非常不错
+DOG算子--------的特征提取（二）
+https://blog.csdn.net/qq_32211827/article/details/72758090
+图像学习-HOG特征 以及其对应的原始英文文章（英文文章比中文更好懂一些，囧）
+https://www.jianshu.com/p/395f0582c5f7
+https://www.learnopencv.com/histogram-of-oriented-gradients/
+【图像特征提取1】方向梯度直方图HOG---从理论到实践------附带积分图像的解析 (这个人的博客可以多看一些，写的不错)，下面这段综述可以多看下
+特征检测算法的综述
+          计算机视觉理论中的特征描述是常见的目标分析技术之一，关键点的检测和关键点的提取是目标分析的重要手段和重要步骤之一。局部图像特征描述的核心问题是不变性和可分析性，不变性是基于特征描述对于视角变化的不变性、尺度变化的不变性以及旋转变化的不变性，可分性是基于图像的局部内容的可分性。但是，在实际应用中，不变性和可分性是相互矛盾的。OprnCv中有许多特征检测和提取的算法，例如：SIFT、SURF、ORB、LBP、HOG；Harris角点检测算法、FAST角点检测算法、Harr等。
+https://blog.csdn.net/qq_32211827/article/details/72511717
+第七十一天（2019.5.25）：今天继续学习SIFT，新找到了一篇文章，基本上看完这篇文章之后对于SIFT特征提取就有了一定的感性认识
+https://blog.csdn.net/abcjennifer/article/details/7639681
+今天继续学习learning opencv3这本书的第15章，背景提取，为处理家里的摄像头做知识储备
