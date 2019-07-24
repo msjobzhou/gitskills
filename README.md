@@ -130,6 +130,8 @@ https://www.cnblogs.com/tianyalu/p/5687782.html
 很多时候要考虑多元函数沿任意方向的变化率，那么就引出了方向导数
 各种算子的如何推导出来的参考如下文章：梯度与Roberts、Prewitt、Sobel、Lapacian算子
 https://blog.csdn.net/swj110119/article/details/51777422
+上面的这篇文章里面的有些算子的方向错了，还有一些可能不正确，具体可以再参考下面的这篇文章做一些纠正
+https://blog.csdn.net/gdut2015go/article/details/46779251
 第十八天（2019.3.19）：今天主要是思考导数的几何含义，尤其是要弄明白三维空间中梯度的含义
 参考下这篇文档：https://blog.csdn.net/czmacd/article/details/81178650 貌似下面的这个图可以稍微给点灵感
 
@@ -344,9 +346,177 @@ https://blog.csdn.net/qq_32211827/article/details/72758090
 https://www.jianshu.com/p/395f0582c5f7
 https://www.learnopencv.com/histogram-of-oriented-gradients/
 【图像特征提取1】方向梯度直方图HOG---从理论到实践------附带积分图像的解析 (这个人的博客可以多看一些，写的不错)，下面这段综述可以多看下
+又找到一篇HOG资源汇总的帖子
+https://blog.csdn.net/lxlclzy1130/article/details/52510795
+
 特征检测算法的综述
           计算机视觉理论中的特征描述是常见的目标分析技术之一，关键点的检测和关键点的提取是目标分析的重要手段和重要步骤之一。局部图像特征描述的核心问题是不变性和可分析性，不变性是基于特征描述对于视角变化的不变性、尺度变化的不变性以及旋转变化的不变性，可分性是基于图像的局部内容的可分性。但是，在实际应用中，不变性和可分性是相互矛盾的。OprnCv中有许多特征检测和提取的算法，例如：SIFT、SURF、ORB、LBP、HOG；Harris角点检测算法、FAST角点检测算法、Harr等。
 https://blog.csdn.net/qq_32211827/article/details/72511717
 第七十一天（2019.5.25）：今天继续学习SIFT，新找到了一篇文章，基本上看完这篇文章之后对于SIFT特征提取就有了一定的感性认识
 https://blog.csdn.net/abcjennifer/article/details/7639681
-今天继续学习learning opencv3这本书的第15章，背景提取，为处理家里的摄像头做知识储备
+今天开始学习learning opencv3这本书的第15章，背景提取，为处理家里的摄像头做知识储备
+第七十二天（2019.5.26）：今天继续学习learning opencv3这本书的第15章，背景提取，为处理家里的摄像头做知识储备
+同时可以参考知乎“运动检测”专栏
+https://zhuanlan.zhihu.com/p/42938173
+第七十三天（2019.5.27）：今天继续学习learning opencv3这本书的第15章，背景提取
+同时今天也进入了第16章 关键点和描述子的学习，今天先查一些harris角点的资料
+https://www.cnblogs.com/jiahenhe2/p/7930802.html
+第七十四天（2019.5.28）：今天继续学习harris角点检测，又找到一篇帮助理解的帖子，这篇帖子进一步给出了源码解析和harris角点的几个性质：如对比度变化不敏感、旋转不变性、尺度不变性
+https://www.cnblogs.com/polly333/p/5416172.html
+第七十五天（2019.5.29）：harris角点求解过程中有个求矩阵的特征值的过程，看到有些帖子从PCA主成分分析角度来看特征值求解，因此现在来研究下PCA，参考下下面这个帖子：
+https://blog.csdn.net/Murray_/article/details/79945148
+第七十六天（2019.5.30）：今天学习learning opencv3这本书的第16章，光流，结合下面这篇帖子，基本上看懂了Lucas-Kanade光流算法
+https://zhuanlan.zhihu.com/p/42942198
+第七十六天（2019.5.31）：今天研究下图像金字塔，参考下如下链接，这篇文章主要是文章末尾列举的参考文献都是一些启发性的解释
+https://blog.csdn.net/weixin_41735501/article/details/83039423
+上面这篇文章中提到高斯核是唯一的线性核，紧接着还跟了一句“也就是说使用高斯核对图像模糊不会引入其他噪声”，对于这个不太理解，搜索到一篇帖子：
+https://blog.csdn.net/wsj998689aa/article/details/47027365
+这里对于高斯函数的理解还要加深一下
+https://blog.csdn.net/ccblogger/article/details/73065044
+第七十七&七十八天（2019.6.3&6.4）：今天研究下矩阵的特征值、特征向量
+【线性代数】矩阵、向量、行列式、特征值与特征向量（掌握这些概念一篇文章就够了）
+https://blog.csdn.net/a727911438/article/details/77531973
+自己随便零散的写了一点对于特征值和特征向量的理解，试图自问自答几个问题：
+1、针对采样的样本值，PCA分析，为什么画个椭圆，作为样本空间的边界？
+
+![1559746896964](pic/1559746896964.png)
+
+2、特征值和特征向量的几何意义？
+
+3、特征值和特征向量的应用，降维，向量空间：降维
+
+矩阵在马同学的知乎专栏上提到速度和方向，其中举了斐波那契烧水的故事
+https://www.zhihu.com/question/21874816
+Ax=lambda。x
+4、样品（采样点）的相似程度和随机变量的相关性
+样品点--向量的相关性（相似程度）（内积为0表示两个向量不相关）、随机变量的相关性，下面这个截图阐述了变量（特征）的相关性
+
+![1559661990217](pic/1559661990217.png)关于主成分分析参考这篇文档：
+https://blog.csdn.net/hustqb/article/details/78394058
+第七十九天（2019.6.5）：继续学习learning opencv 3这本书上的SIFT
+第八十天（2019.6.10）：今天开始进行实际的编码了
+learning opencv3这本书的示例源码和练习
+https://github.com/oreillymedia/Learning-Opencv-3_examples
+第八十一天（2019.6.11）：继续进行实际编程
+CreateTrackBar函数的用法，参考
+https://blog.csdn.net/piaoyidage/article/details/42168011
+第八十二天（2019.6.12）：继续进行实际编程
+第八十三天（2019.6.13）：继续进行实际编程
+今天主要研究下contourArea函数是如何计算面积的
+https://www.jianshu.com/p/23ca6c861153
+下面的帖子解释了opencv中contourArea函数的源代码，其中提到了向量叉乘
+https://blog.csdn.net/m0_37914500/article/details/78615284
+在下面的帖子讲解了为啥叉乘求出来的是面积
+https://www.cnblogs.com/zzdyyy/p/7643267.html
+第八十四天（2019.6.14）：继续进行实际编程，看了以前的代码都是opencv1.0时代的写作方式，从今天开始下定决心，切换到opencv3.0了，更贴近于learning opencv3这本书
+opencv3.0+vs2013的配置参考下面这篇文章
+https://www.cnblogs.com/cjqbaba/p/8998903.html
+第八十五天（2019.6.15）：在等待下载opencv3.0.0的时候，复习下learning opencv 3.0这本书中导数在图像处理中的一些应用
+第八十六天（2019.6.16）：vs2013配置opencv3.0，下面的这个帖子是配置64位的
+https://blog.csdn.net/liangjiubujiu/article/details/80595992 
+里面讲到了配置属性表的两种方式，其中一种是将配置，配成prop文件的形式，这样后续没建立一个工程的时候就不用重复配置了，直接加载对应的prop文件即可
+opencv3.0中contrib模块的添加
+https://blog.csdn.net/streamchuanxi/article/details/51044929 主要参考这篇文章进行实际操作（后面基于这篇文章自己写个总结）
+第八十七天（2019.6.19）：继续配置contrib模块
+https://blog.csdn.net/moliang136/article/details/79483052  当前在参考这篇文章
+https://blog.csdn.net/yunduwu0010/article/details/54315175
+https://blog.csdn.net/lyl771857509/article/details/79070799 其中编译64位的部分参考了这篇文章
+https://www.jianshu.com/p/88a8eea92fdb
+https://blog.csdn.net/hust_bochu_xuchao/article/details/78819280
+第八十八天（2019.6.22）：成功进行了opencv3.0源码和contrib模块的编译
+编译成功记录：
+debug部分
+51>  -- Installing: D:/tools/opencv/opencv300/opencv/mybuild/install/x64/vc12/bin/opencv_annotationd.exe
+========== 生成:  成功 51 个，失败 0 个，最新 45 个，跳过 0 个 **==========**
+release部分：
+96>  -- Installing: D:/tools/opencv/opencv300/opencv/mybuild/install/x64/vc12/bin/opencv_traincascade.exe
+96>  -- Installing: D:/tools/opencv/opencv300/opencv/mybuild/install/x64/vc12/bin/opencv_createsamples.exe
+96>  -- Installing: D:/tools/opencv/opencv300/opencv/mybuild/install/x64/vc12/bin/opencv_annotation.exe
+========== 生成:  成功 96 个，失败 0 个，最新 0 个，跳过 0 个 ==========
+第八十九天（2019.6.23）：今天进行opencv3.0+contrib模块 vs2013 64位我自己编译出来的链接库的配置，配置成功，今天开始逐步改造之前写的homeCameraExtraction opencv1.0的代码
+第一步就是把类似功能的函数重新写到一个C++工具类中，方便后续统一管理和子类继承对应的功能
+第九十天（2019.6.24）：写C++工具类： FileUtil
+第九十一天（2019.6.28）：写C++工具类：VideoUtil
+第九十二天（2019.6.29）：继续写代码，图像差分二值化之后，进行轮廓查找
+这篇文章以多边形、长方形、圆形等多种方式画出轮廓线的方法可以参考下，有较大借鉴价值
+https://blog.csdn.net/fu6543210/article/details/79935358
+第九十三天（2019.7.1）：对万科清林径的3个摄像头分别用几个视频测试下有较大图片变化和无图片变化的场景，看看结果是否正确。
+第九十四天（2019.7.3）：继续编程，帧间差分
+第九十五天（2019.7.5）：继续编程，帧间差分，同时开始增加sqlite3数据库的相关操作
+VS2013环境编译使用sqlite数据库全过程
+https://www.cnblogs.com/chechen/p/7356010.html
+https://blog.csdn.net/ss33sss/article/details/80938192
+第九十六天（2019.7.6）：继续sqlite3编程
+查询多行返回数据的方法
+C++操作SQLITE获得查询结果集的几种方法总结
+https://blog.csdn.net/jqsad/article/details/51782088
+sqlite3_open指定路径的数据库不存在的话，程序会自动创建一个
+
+关于sqlite3的中文存储和显示问题：如果读取字符的时候不做特殊处理（按照char*来识别），那么字符将保留原始的格式，同时如果读取字符时其使用的字符编码和显示时使用的字符编码是一样的话则不会有乱码问题，举个例子：
+我用win10中文版+vs2013编写了一段代码，存中文名字进入sqlite数据库，这段代码的源程序文件是GBK编码的，则中文名不做任何字符集合转换按照char*的方式存入数据库时，在sqlite3数据库里面其表现形式还是原始的字符，这个时候如果我写的程序再去读取数据库里面的内容显示到cmd命令窗口的时候，由于cmd默认的字符编码也是GBK，因此中文名的显示不会出现乱码，但是如果这个时候我再cmd命令行里面调用sqlite3.exe去显示这个中文名字的时候则会出现乱码，原因是sqlite3会将存储在其数据库里面的字符认为是UTF-8编码，GBK的编码没有经过转换直接按照UTF-8来显示，当然会出现乱码
+这里其实隐藏了一个非常重要的事实，字符被编码只有在其被存储或者进行网络传输的时候才会被编码成UTF-8或者GBK等，字符在被读到内存或者在显示器界面显示的时候都是转换成Unicode进行显示的，下图左边是自己编码的代码在cmd命令行中显示的中文字符，右边是用官方发布的sqlite3.exe在cmd命令行中显示的中文乱码
+
+![1562422101568](pic/1562422101568.png)
+sqlite3在表中插入数据的方法：
+1、sprintf+sqlite3_exec的组合：适用于无blob这种特殊二进制类型的数据
+sprintf(sql, "INSERT INTO test_for_cpp (id, name, age) VALUES (%d, '%s', %d)", index, str, 20);
+sqlite3_exec(conn, sql, NULL, NULL, &err_msg)
+2、sqlite3_prepare+sqlite3_bind_text(或者其他XX)+sqlite3_step+sqlite3_reset（插入多条数据中间重新置位一下）+sqltie3_finalize（所有数据都插入完成）
+参考下面的这个帖子：
+https://blog.csdn.net/xiaoaid01/article/details/17892579/
+sqlite3查询表中数据的方法
+https://blog.csdn.net/jqsad/article/details/51782088
+这里面的介绍了4种方法，当前我使用的主要是：
+1、回调函数法：由于回调函数中传入参数全部是字符串的形式，因此这种查询方式出来的结果也仅适用于文字显示等简单的场景
+2、通过sqlite3_prepare、sqlite3_step、sqlite3_column_blob（或者其他XX）一系列操作
+文中提到的另外两种方法：sqlite3_get_table和利用事务(BEGIN;COMMIT;)批量操作 有机会再研究一下
+第九十七天（2019.7.7）：继续sqlite3编程，使用C++封装sqlite的C接口，主要参考下面这篇文档：
+https://www.cnblogs.com/crazychris/archive/2012/07/15/2592644.html
+Sqlite3 C++ ORM
+https://www.douban.com/group/topic/28986303/
+第九十八天（2019.7.12）：复习下之前学习过的C++11多线程的内容，在视频处理中增加多线程的内容
+参考如下两篇文档：
+C++ 11 实现异步定时器：
+https://www.cnblogs.com/gtarcoder/p/4924097.html
+C++11实现生产者消费者模型
+https://www.cnblogs.com/haippy/p/3252092.html
+第九十九天（2019.7.13）：今天在上面生产者消费者模型的基础上实现一个多线程读写（多个同时读1个写）的模型，同时参考morewindows的“秒杀多线程”系列博客
+https://blog.csdn.net/MoreWindows/article/details/17488865
+
+明天根据如下帖子写下sqlite多线程读写性能测试。
+SQLite在多线程环境下的应用
+https://blog.csdn.net/gilnuy0106/article/details/10325453
+
+多线程需要解决两个问题：1、互斥 2、同步 ，一般写代码时从逻辑上要找出“等待”
+以生产者消费者模型为例：生产者要往缓冲区放入商品之前需要等待“缓冲区未满”的事件；消费者要往缓冲区取走商品之前需要等待“缓冲区非空”的事件；同时还需要在缓冲区上加入锁，往缓冲区放和从缓冲区取不能同时进行
+多个线程可以同时读，1个线程写的多线程模型和生产者消费者模型又有不一样的地方，实现上有些许差异
+第一百天（2019.7.14）：继续写多线程读写的这个代码
+今天写了一段伪代码，明天接着书写真正打代码进行调试
+第101天（2019.7.17）：继续写多线程读写的这个代码
+第102天（2019.7.19）：继续写多线程读写的这个代码，成功用C++11的condition_variable的wait和notify来实现了多个读线程和1个写线程
+另外，在网上找到了用纯原生C++11写了读写锁代码
+C++ 并发编程（七）：读写锁（Read-Write Lock）
+https://segmentfault.com/a/1190000006941870?utm_source=tag-newest
+这里用到了C++14甚至17才支持的shared_mutex和shared_lock，我自己用C++11实现了读写
+另外一篇是用原生C++11实现semaphore
+C++ 并发编程（六）：信号量（Semaphore）
+https://segmentfault.com/a/1190000006818772
+
+趁着这个机会写一个C++11多线程的专栏，提交到github上，第一篇先写这个读写线程
+深入应用C++
+第103天（2019.7.21）：今天晚上要基于“SQLite在多线程环境下的应用”实际测试下SQlite3的性能，完成了单线程读写数据库次数的测试
+第104天（2019.7.22）：今天接着昨天完成，基于多线程的数据库读写性能测试
+另外发现一个现象：一旦启用WAL模式后，数据库会保持这个模式，这样下次打开数据库时仍然是 WAL模式。
+第105天（2019.7.23）：摸底基于多线程的数据库读写性能测试
+从sqlite3的官方发布的帮助文档里面摘两段话说明下sqlite3的单线程模式+多线程模式+串行模式
+SQLite supports three different threading modes:
+**Single-thread.** In this mode, all mutexes are disabled and SQLite is unsafe to use in more than a single thread at once.
+**Multi-thread.** In this mode, SQLite can be safely used by multiple threads provided that no single database connection is used simultaneously in two or more threads.
+**Serialized.** In serialized mode, SQLite can be safely used by multiple threads with no restriction.
+SQLITE_CONFIG_SINGLETHREAD
+There are no arguments to this option. This option sets the threading mode to Single-thread. In other words, it disables all mutexing and puts SQLite into a mode where it can only be used by a single thread. If SQLite is compiled with the SQLITE_THREADSAFE=0 compile-time option then it is not possible to change the threading mode from its default value of Single-thread and so sqlite3_config() will return SQLITE_ERROR if called with the SQLITE_CONFIG_SINGLETHREAD configuration option.
+SQLITE_CONFIG_MULTITHREAD
+There are no arguments to this option. This option sets the threading mode to Multi-thread. In other words, **it disables mutexing on database connection and prepared statement objects. The application is responsible for serializing access to database connections and prepared statements.** But other mutexes are enabled so that SQLite will be safe to use in a multi-threaded environment as long as no two threads attempt to use the same database connection at the same time. If SQLite is compiled with the SQLITE_THREADSAFE=0 compile-time option then it is not possible to set the Multi-thread threading mode and sqlite3_config() will return SQLITE_ERROR if called with the SQLITE_CONFIG_MULTITHREAD configuration option.
+SQLITE_CONFIG_SERIALIZED
+There are no arguments to this option. This option sets the threading mode to Serialized. In other words, this option enables all mutexes including the recursive mutexes on database connection and prepared statement objects. In this mode (which is the default when SQLite is compiled with SQLITE_THREADSAFE=1) the SQLite library will itself serialize access to database connections and prepared statements so that the application is free to use the same database connection or the same prepared statement in different threads at the same time. If SQLite is compiled with the SQLITE_THREADSAFE=0 compile-time option then it is not possible to set the Serialized threading mode and sqlite3_config() will return SQLITE_ERROR if called with the SQLITE_CONFIG_SERIALIZED configuration option.
+第106天（2019.7.24）：sqlite3加入中文UTF-8的支持
